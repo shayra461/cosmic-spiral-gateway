@@ -9,9 +9,6 @@ import BuySection from "@/components/BuySection";
 import ReviewsSection from "@/components/ReviewsSection";
 import NewsletterSection from "@/components/NewsletterSection";
 import FooterSection from "@/components/FooterSection";
-import ReviewsSection from "@/components/ReviewsSection";
-import NewsletterSection from "@/components/NewsletterSection";
-import FooterSection from "@/components/FooterSection";
 
 const Index = () => {
   return (
@@ -20,6 +17,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <AboutSection />
+      <CharactersBanner />
       <AuthorSection />
       <StoryWorldSection />
       <BuySection />
