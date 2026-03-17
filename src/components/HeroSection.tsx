@@ -207,23 +207,22 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center"
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
+          animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="w-5 h-8 border border-foreground/20 rounded-full flex justify-center"
         >
-          <div className="w-6 h-10 border border-foreground/20 rounded-full flex justify-center">
-            <motion.div
-              animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-1 h-2 bg-primary rounded-full mt-2"
-            />
-          </div>
-          <p className="font-body text-[9px] uppercase tracking-[0.3em] text-muted-foreground mt-2 text-center">
-            Scroll
-          </p>
+          <motion.div
+            animate={{ y: [0, 8, 0], opacity: [1, 0.3, 1] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="w-0.5 h-1.5 bg-primary rounded-full mt-1.5"
+          />
         </motion.div>
+        <p className="font-body text-[8px] uppercase tracking-[0.3em] text-muted-foreground/50 mt-1.5">
+          Scroll
+        </p>
       </motion.div>
     </section>
   );
