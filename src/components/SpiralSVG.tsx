@@ -1,4 +1,4 @@
-const SpiralSVG = ({ className = "" }: { className?: string }) => (
+const SpiralSVG = ({ className = "", style }: { className?: string; style?: React.CSSProperties }) => (
   <svg
     viewBox="0 0 800 800"
     className={className}
