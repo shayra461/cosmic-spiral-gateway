@@ -1,27 +1,65 @@
 import { motion } from "framer-motion";
 import SpiralSVG from "./SpiralSVG";
+import desertBg from "@/assets/desert-landscape.jpg";
 
 const AboutSection = () => {
   return (
     <section id="about" className="relative py-[15vh] md:py-[20vh] overflow-hidden bg-grain">
+      {/* Desert background */}
       <div className="absolute inset-0 bg-background" />
+      <div
+        className="absolute inset-0 opacity-[0.07] bg-cover bg-center animate-sand-drift"
+        style={{ backgroundImage: `url(${desertBg})` }}
+      />
+      <div className="absolute inset-0 desert-gradient" />
+      
+      {/* Floating sand particles */}
+      <motion.div
+        animate={{ x: ["-10%", "110%"] }}
+        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        className="absolute top-[30%] h-px w-[30%] bg-gradient-to-r from-transparent via-primary/15 to-transparent"
+      />
+      <motion.div
+        animate={{ x: ["110%", "-10%"] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear", delay: 5 }}
+        className="absolute top-[60%] h-px w-[20%] bg-gradient-to-r from-transparent via-primary/10 to-transparent"
+      />
+
       <SpiralSVG className="absolute -right-40 top-0 w-[80vh] h-[80vh] animate-spiral opacity-10" />
 
       <div className="relative z-10 container mx-auto px-6 max-w-4xl">
-        {/* Divider */}
-        <div className="flex items-center gap-4 mb-16 justify-center">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent to-border" />
-          <div className="w-3 h-3 border border-primary/60 rotate-45" />
-          <div className="h-px flex-1 bg-gradient-to-l from-transparent to-border" />
-        </div>
+        {/* Animated divider */}
+        <motion.div 
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          className="flex items-center gap-4 mb-16 justify-center"
+        >
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent to-primary/30" />
+          <motion.div 
+            animate={{ rotate: 360 }}
+            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+            className="w-4 h-4 border border-primary/60 rotate-45"
+          />
+          <div className="h-px flex-1 bg-gradient-to-l from-transparent to-primary/30" />
+        </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="font-body text-xs uppercase tracking-[0.2em] text-primary mb-6 text-center">About the Book</p>
+          <motion.p 
+            initial={{ opacity: 0, letterSpacing: "0.5em" }}
+            whileInView={{ opacity: 1, letterSpacing: "0.2em" }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="font-body text-xs uppercase text-primary mb-6 text-center"
+          >
+            About the Book
+          </motion.p>
           <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground text-center mb-12">
             The Akashic Record
           </h2>
@@ -39,31 +77,52 @@ const AboutSection = () => {
             <p>
               To claim it, Jack must survive impossible trials, face betrayal and loss, and awaken a power that could heal the Spiral of time… —or shatter it forever.
             </p>
-            <p className="text-primary font-display text-2xl italic text-center mt-10">
+            <motion.p 
+              className="text-primary font-display text-2xl italic text-center mt-10"
+              animate={{ 
+                textShadow: [
+                  "0 0 20px hsla(28,90%,55%,0.3)",
+                  "0 0 40px hsla(28,90%,55%,0.6)",
+                  "0 0 20px hsla(28,90%,55%,0.3)",
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
               The Wheel has begun to turn.
-            </p>
+            </motion.p>
           </div>
         </motion.div>
 
         {/* Stats */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-16 grid grid-cols-3 gap-6 text-center"
         >
           {[
             { num: "4,000", label: "Years of History" },
             { num: "1", label: "Cosmic Secret" },
             { num: "0", label: "Ways Back" },
-          ].map((stat) => (
-            <div key={stat.label} className="glass-card p-6 rounded-sm">
+          ].map((stat, i) => (
+            <motion.div 
+              key={stat.label} 
+              className="glass-card p-6 rounded-sm animate-glow-breathe"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 + i * 0.15 }}
+              whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+              style={{ animationDelay: `${i * 1.3}s` }}
+            >
               <p className="font-display text-3xl md:text-4xl text-primary text-glow-orange">{stat.num}</p>
               <p className="font-body text-xs uppercase tracking-[0.15em] text-muted-foreground mt-2">{stat.label}</p>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
+
+        <div className="desert-divider mt-16" />
       </div>
     </section>
   );
