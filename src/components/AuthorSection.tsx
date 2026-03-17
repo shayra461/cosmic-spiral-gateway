@@ -23,14 +23,12 @@ const AuthorSection = () => {
             <div className="flex justify-center">
               <div className="relative group">
                 <div className="absolute -inset-2 bg-gradient-to-b from-primary/30 to-accent/20 rounded-sm blur-lg opacity-50 group-hover:opacity-80 transition-opacity" />
-                <div className="relative w-56 h-64 md:w-64 md:h-72 glass-card rounded-sm overflow-hidden flex items-center justify-center">
-                  <div className="text-center p-4">
-                    <div className="w-24 h-24 mx-auto rounded-full bg-muted mb-4 flex items-center justify-center">
-                      <span className="font-display text-3xl text-primary">KB</span>
-                    </div>
-                    <p className="font-display text-xl text-foreground">Kent L. Balzer</p>
-                    <p className="font-body text-xs text-muted-foreground uppercase tracking-widest mt-1">Author</p>
-                  </div>
+                <div className="relative w-56 h-64 md:w-64 md:h-72 glass-card rounded-sm overflow-hidden">
+                  <img
+                    src={authorPhoto}
+                    alt="Kent L. Balzer"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
               </div>
             </div>
