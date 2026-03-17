@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import authorPhoto from "@/assets/author-kent.jpeg";
 
 const AuthorSection = () => {
   return (
