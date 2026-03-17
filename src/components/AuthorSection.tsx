@@ -23,11 +23,11 @@ const AuthorSection = () => {
             <div className="flex justify-center">
               <div className="relative group">
                 <div className="absolute -inset-2 bg-gradient-to-b from-primary/30 to-accent/20 rounded-sm blur-lg opacity-50 group-hover:opacity-80 transition-opacity" />
-                <div className="relative w-56 h-64 md:w-64 md:h-72 glass-card rounded-sm overflow-hidden">
+                <div className="relative w-56 md:w-64 aspect-[3/4] glass-card rounded-sm overflow-hidden">
                   <img
                     src={authorPhoto}
                     alt="Kent L. Balzer"
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-[center_30%]"
                   />
                 </div>
               </div>
