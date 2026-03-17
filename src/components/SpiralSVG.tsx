@@ -2,6 +2,7 @@ const SpiralSVG = ({ className = "", style }: { className?: string; style?: Reac
   <svg
     viewBox="0 0 800 800"
     className={className}
+    style={style}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
